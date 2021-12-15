@@ -5,6 +5,11 @@ Route::get('/', [
     'as' => 'product.index'
 ]);
 
+Route::get('/add-to-cart/{id}', [
+   'uses' => 'UserController@GetAddToCart',
+    'as' => 'product.addToCart'
+]);
+
 Route::group(['prefix' => 'user'], function() {
     Route::group(['middleware' => 'guest'], function(){
         Route::get('/signup', [
